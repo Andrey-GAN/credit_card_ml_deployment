@@ -8,12 +8,14 @@
 
 bash
 docker pull andreygan/credit_card_ml_deployment:latest
+
 docker run -d -p 5000:5000 --name credit-card-api andreygan/credit_card_ml_deployment
 
 После запуска сервис будет доступен по адресу: http://localhost:5000
 
 
 git clone https://github.com/andreygan/credit_card_ml_deployment.git
+
 cd credit_card_ml_deployment
 
 # Установите зависимости (рекомендуется использовать виртуальное окружение):
@@ -93,25 +95,30 @@ model_version: версия модели.
 ![](screenshot_test_api.png)
 
 # Структура проекта
+``` plain
 
-credit_card_ml_deployment/
-├── app/
-|   |
-│   └── app.py              # Flask-приложение (API)
-|
-├── models/
-|   |
-│   ├── modelv1.pkl         # Сериализованная модель
-|   |
-│   └── data/
-|       |
-│       └── UCI_Credit_Card.csv  # Датасет для обучения
-|
-├── tests/
-|   |
-│   └── test_api.py         # Скрипт для тестирования API
-|
-└── requirements.txt        # Зависимости Python
+└───credit_card_ml_deployment
+    │   docker-compose.yml
+    │   Dockerfile
+    │   Readme.md
+    │   requirements.txt
+    │   screenshot_server_respond.png
+    │   screenshot_test_api.png
+    │
+    ├───app
+    │       api.py
+    │
+    ├───models
+    │   │   modelv1.pkl
+    │   │   train_model.py
+    │   │
+    │   └───data
+    │           UCI_Credit_Card.csv
+    │
+    └───tests
+            test_api.py
+
+```
 
 # Тестирование
 
