@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - uwsgi
+
+ 
+  model:
+    build:
+      context: ./model
+    restart: always
+    depends_on:
+      - uwsgi
+  app:
+    build:
+      context: ./app
+    restart: always
+    depends_on:
+      - uwsgi
+      - model
+  tests:
+    build:
+      context: ./tests
+    restart: always
+    depends_on:
+      - app
+      - uwsgi
+      - model
