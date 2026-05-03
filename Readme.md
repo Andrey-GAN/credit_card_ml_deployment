@@ -4,6 +4,8 @@
 
 # Быстрый старт (Docker Hub)
 
+Ссылка на docker образ: https://hub.docker.com/repository/docker/andreygan/credit_card_ml_deployment/general
+
 Проще всего запустить сервис с помощью Docker. Образ опубликован и готов к использованию.
 
 bash
